@@ -1,0 +1,25 @@
+{
+    "name": "axelerant/drupal-quality-checker",
+    "type": "project",
+    "description": "Code quality checking tools for Drupal project.",
+    "homepage": "https://github.com/axelerant/drupal-quality-checker",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Hussain Abbas",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "composer/composer": "^1.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "drupal/coder": "^8.2.12",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "phpro/grumphp": "^0.16",
+        "sebastian/phpcpd": "^3.0"
+    },
+    "support": {
+        "issues": "https://github.com/axelerant/drupal-quality-checker/issues",
+        "source": "https://github.com/axelerant/drupal-quality-checker"
+    }
+}
