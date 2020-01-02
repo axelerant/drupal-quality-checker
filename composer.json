@@ -15,11 +15,15 @@
         "dealerdirect/phpcodesniffer-composer-installer": "*",
         "drupal/coder": "^8.3.7",
         "jakub-onderka/php-parallel-lint": "^1.0",
+        "phpcompatibility/php-compatibility": "^9.0",
         "phpro/grumphp": "^0.16",
         "sebastian/phpcpd": "^3.0"
     },
     "support": {
         "issues": "https://github.com/axelerant/drupal-quality-checker/issues",
         "source": "https://github.com/axelerant/drupal-quality-checker"
+    },
+    "config": {
+        "sort-packages": true
     }
 }
