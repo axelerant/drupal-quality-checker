@@ -13,7 +13,7 @@ parameters:
       directory: './web/modules/custom'
     phpcs:
       standard:
-        - vendor/axelerant/drupal-code-quality/phpcs.xml.dist
+        - vendor/axelerant/drupal-quality-checker/phpcs.xml.dist
       ignore_patterns:
         - .github
         - .gitlab

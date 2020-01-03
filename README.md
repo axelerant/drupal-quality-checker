@@ -7,13 +7,13 @@ This has been customised from [vijaycs85/drupal-quality-checker](https://packagi
 First, run `composer require` to include the package in your application.
 
 ```bash
-composer require --dev axelerant/drupal-code-quality
+composer require --dev axelerant/drupal-quality-checker
 ```
 
 Then, copy the `grumphp.yml.dist` from the library to your project root.
 
 ```bash
-cp vendor/axelerant/drupal-code-quality/grumphp.yml.dist grumphp.yml
+cp vendor/axelerant/drupal-quality-checker/grumphp.yml.dist grumphp.yml
 ```
 
 There is also a phpmd.xml.dist you may copy and edit if you wish (don't forget to change the grumphp.yml in your project as well).
