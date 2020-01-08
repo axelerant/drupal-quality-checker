@@ -16,7 +16,7 @@
         "drupal/coder": "^8.3.7",
         "jakub-onderka/php-parallel-lint": "^1.0",
         "phpcompatibility/php-compatibility": "^9.0",
-        "phpro/grumphp": "^0.16",
+        "phpro/grumphp": "^0.17",
         "sebastian/phpcpd": "^3.0"
     },
     "support": {
