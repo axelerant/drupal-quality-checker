@@ -10,7 +10,7 @@ parameters:
     composer: ~
     jsonlint: ~
     phpcpd:
-      directory: './web/modules/custom'
+      directory: ['./web/modules/custom']
     phpcs:
       standard:
         - vendor/axelerant/drupal-quality-checker/phpcs.xml.dist
