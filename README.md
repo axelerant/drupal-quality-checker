@@ -26,6 +26,23 @@ No additional steps required, but if git hooks aren't fired, run `php ./vendor/b
 
 Almost all customising begins with first copying the `grumphp.yml.dist` file to your project. Make sure you have the file.
 
+### Adding tasks
+
+There are various tasks you can add and customise in your grumphp.yml. Read the [online documentation for GrumPHP tasks](https://github.com/phpro/grumphp/blob/master/doc/tasks.md) to see the tasks you can use and configure.
+
+### Forcing commit message format
+
+To configure commit message structure, use the [git_commit_message task](https://github.com/phpro/grumphp/blob/master/doc/tasks/git_commit_message.md). For example, to enforce the commit message contains the Jira issue ID, use the rule as the following snippet. More options are [documented online](https://github.com/phpro/grumphp/blob/master/doc/tasks/git_commit_message.md).
+
+```yaml
+# grumphp.yml
+parameters:
+  tasks:
+    git_commit_message:
+      matchers:
+        Must contain issue number: /JIRA-\d+/
+```
+
 ### Disable commit banners
 
 GrumPHP supports banners to celebrate (or scold) on your commit. This is fun but it is possible it gets on your nerves. If you don’t want it, edit the grumphp.yml file and replace the following parameters:
