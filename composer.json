@@ -18,7 +18,7 @@
         "phpcompatibility/php-compatibility": "^9.0",
         "phpmd/phpmd": "^2.8",
         "phpro/grumphp": "^0.17",
-        "sebastian/phpcpd": "^3.0"
+        "sebastian/phpcpd": "^3.0 || ^4.0"
     },
     "support": {
         "issues": "https://github.com/axelerant/drupal-quality-checker/issues",
