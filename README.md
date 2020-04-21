@@ -4,19 +4,48 @@ This has been customised from [vijaycs85/drupal-quality-checker](https://packagi
 
 ## Installation
 
+### When using drupal/core-composer-scaffold (recommended)
+
+In most cases, you would already be using the [`drupal/core-composer-scaffold`](https://packagist.org/packages/drupal/core-composer-scaffold) package if you have set up using the latest Drupal templates. This package uses `core-composer-scaffold` to set up configuration files in your project. To make this work, add this package name in your composer's `extra.drupal-scaffold.allowed-packages` section.
+
+```json
+ "name": "my/project",
+  ...
+  "extra": {
+    "drupal-scaffold": {
+      "allowed-packages": [
+        "axelerant/drupal-quality-checker"
+      ],
+      ...
+    }
+  }
+```
+
+Now, run `composer require` to include the package in your application. Since the package is now allowed, the `core-composer-scaffold` package will copy the configuration files.
+
+See [More about scaffolding](#more-about-scaffolding) for more details.
+
+### Without drupal/core-composer-scaffold
+
+If you're not using the scaffolding plugin, the package won't copy the configuration files as expected.
+
 First, run `composer require` to include the package in your application.
 
 ```bash
 composer require --dev axelerant/drupal-quality-checker
 ```
 
-Then, copy the `grumphp.yml.dist` from the library to your project root.
+If you don't already have a `grumphp.yml` file in your project, GrumPHP would ask you to create one. Answer "No" to the prompt.
+
+Then, copy all the `*.dist` from the library to your project root. The files copied are:
+
+* grumphp.yml.dist
+* phpcs.xml.dist
+* phpmd.xml.dist
 
 ```bash
-cp vendor/axelerant/drupal-quality-checker/grumphp.yml.dist grumphp.yml
+cp vendor/axelerant/drupal-quality-checker/*.yml.dist .
 ```
-
-There is also a phpmd.xml.dist you may copy and edit if you wish (don't forget to change the grumphp.yml in your project as well).
 
 ## Usage
 
@@ -97,3 +126,23 @@ parameters:
     phpcs:
       standard: ['phpcs.xml']
 ```
+
+## More about scaffolding
+
+As described before, this package uses [`drupal/core-composer-scaffold`](https://github.com/drupal/core-composer-scaffold) plugin to scaffold a few files to the project root. This is not required but there is a good chance you are already using it if you're building a Drupal site.
+
+The scaffolding operation runs with every composer operation and overwrites files. Only the file `grumphp.yml.dist` is not overwritten during subsequent operations. If you are customising any of the other configuration files and don't want the updates to overwrite your changes, you can override the behaviour in your composer.json file. For example, to skip `phpmd.xml.dist` from being overwritten, add this to your `composer.json`:
+
+```json
+  "name": "my/project",
+  ...
+  "extra": {
+    "drupal-scaffold": {
+      "file-mapping": {
+        "[project-root]/phpmd.xml.dist": false
+      }
+    }
+  }
+```
+
+For more details, read the ["Excluding Scaffold files"](https://github.com/drupal/core-composer-scaffold#excluding-scaffold-files) section of the [documentation](https://github.com/drupal/core-composer-scaffold/blob/8.8.x/README.md) for the core-composer-scaffold plugin.

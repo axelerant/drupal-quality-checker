@@ -13,7 +13,7 @@ parameters:
       directory: ['./web/modules/custom']
     phpcs:
       standard:
-        - vendor/axelerant/drupal-quality-checker/phpcs.xml.dist
+        - phpcs.xml.dist
       ignore_patterns:
         - .github
         - .gitlab
@@ -35,5 +35,5 @@ parameters:
     phpmd:
       whitelist_patterns:
         - /^web\/modules\/custom\/(.*)/
-      ruleset: ['vendor/axelerant/drupal-quality-checker/phpmd.xml.dist']
+      ruleset: ['phpmd.xml.dist']
       triggered_by: ['php']

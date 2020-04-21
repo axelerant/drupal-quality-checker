@@ -26,5 +26,21 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[project-root]/grumphp.yml.dist": {
+                    "mode": "replace",
+                    "path": "grumphp.yml.dist",
+                    "overwrite": false
+                },
+                "[project-root]/phpcs.xml.dist": "phpcs.xml.dist",
+                "[project-root]/phpmd.xml.dist": "phpmd.xml.dist"
+            }
+        }
+    },
+    "suggest": {
+        "drupal/core-composer-scaffold": "Scaffold relevant files in project root. Add axelerant/drupal-quality-checker to extra.drupal-scaffold.allowed-packages."
     }
 }
