@@ -11,7 +11,6 @@
         }
     ],
     "require": {
-        "composer/composer": "^1.0",
         "dealerdirect/phpcodesniffer-composer-installer": "*",
         "drupal/coder": "^8.3.7",
         "jakub-onderka/php-parallel-lint": "^1.0",
@@ -19,6 +18,9 @@
         "phpmd/phpmd": "^2.8",
         "phpro/grumphp": "^0.18",
         "sebastian/phpcpd": "^3.0 || ^4.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.0"
     },
     "support": {
         "issues": "https://github.com/axelerant/drupal-quality-checker/issues",
