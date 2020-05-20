@@ -32,8 +32,6 @@
           \Drupal\Core\Cache\Cache,
           \Drupal\Core\Render\Element,
           \Drupal\Core\Annotation\Action,
-          \Drupal\aggregator\Entity\Feed,
-          \Drupal\aggregator\Entity\Item,
         </value>
       </property>
     </properties>
