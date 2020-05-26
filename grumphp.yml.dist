@@ -9,6 +9,7 @@ parameters:
     yamllint: ~
     composer: ~
     jsonlint: ~
+    twigcs: ~
     phpcpd:
       directory: ['./web/modules/custom']
     phpcs:
