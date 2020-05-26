@@ -9,7 +9,13 @@ parameters:
     yamllint: ~
     composer: ~
     jsonlint: ~
-    twigcs: ~
+    twigcs:
+      path: 'web'
+      exclude:
+        - core
+        - modules/contrib
+        - themes/contrib
+        - profiles/contrib
     phpcpd:
       directory: ['./web/modules/custom']
     phpcs:
