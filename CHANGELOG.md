@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-beta9 / 2020-06-10
+
+* Update README for changes from GrumPHP 0.19
+* Introduce smaller versions of ASCII art
+* Move to grumphp-shim's latest version (**breaking release**, read documentation)
+
 ## 1.0.0-beta8 / 2020-06-10
 
 * Update phpcs.xml.dist with one matching Drupal core
