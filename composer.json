@@ -16,7 +16,7 @@
         "jakub-onderka/php-parallel-lint": "^1.0",
         "phpcompatibility/php-compatibility": "^9.0",
         "phpmd/phpmd": "^2.8",
-        "phpro/grumphp": "^0.18",
+        "phpro/grumphp-shim": "^0.19.0",
         "sebastian/phpcpd": "^3.0 || ^4.0"
     },
     "require-dev": {
