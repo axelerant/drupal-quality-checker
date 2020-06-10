@@ -4,6 +4,8 @@ This has been customised from [vijaycs85/drupal-quality-checker](https://packagi
 
 ## Installation
 
+_Upgrading from Beta 8?_ Read [the instructions for changes](#upgrading-from-beta-8) you need to make to grumphp.yml.dist.
+
 ### When using drupal/core-composer-scaffold (recommended)
 
 In most cases, you would already be using the [`drupal/core-composer-scaffold`](https://packagist.org/packages/drupal/core-composer-scaffold) package if you have set up using the latest Drupal templates. This package uses `core-composer-scaffold` to set up configuration files in your project. To make this work, add this package name in your composer's `extra.drupal-scaffold.allowed-packages` section.
@@ -65,7 +67,7 @@ To configure commit message structure, use the [git_commit_message task](https:/
 
 ```yaml
 # grumphp.yml
-parameters:
+grumphp:
   tasks:
     git_commit_message:
       matchers:
@@ -78,7 +80,7 @@ GrumPHP supports banners to celebrate (or scold) on your commit. This is fun but
 
 ```yaml
 # grumphp.yml
-parameters:
+grumphp:
     ascii: ~
 ```
 
@@ -86,7 +88,7 @@ You could even disable specific ones like this:
 
 ```yaml
 # grumphp.yml
-parameters:
+grumphp:
     ascii:
         succeeded: ~
 ```
@@ -103,7 +105,7 @@ Edit it as per your needs and commit. Remember to modify the grumphp.yml file wi
 
 ```yaml
 # grumphp.yml
-parameters:
+grumphp:
   tasks:
     phpmd:
       ruleset: ['phpmd.xml']
@@ -121,7 +123,7 @@ Edit it as per your needs and commit. Remember to modify the grumphp.yml file wi
 
 ```yaml
 # grumphp.yml
-parameters:
+grumphp:
   tasks:
     phpcs:
       standard: ['phpcs.xml']
@@ -146,3 +148,9 @@ The scaffolding operation runs with every composer operation and overwrites file
 ```
 
 For more details, read the ["Excluding Scaffold files"](https://github.com/drupal/core-composer-scaffold#excluding-scaffold-files) section of the [documentation](https://github.com/drupal/core-composer-scaffold/blob/8.8.x/README.md) for the core-composer-scaffold plugin.
+
+## Upgrading from Beta 8
+
+GrumPHP 0.19 introduced [a breaking change](https://github.com/phpro/grumphp/releases/tag/v0.19.0) to the structure of the YAML file. The template in this repository is updated as per the new structure. However, you would need to change the YML files on your projects before you update to Beta 9 or later.
+
+Fortunately, the change is simple and in many cases would only require a one line change. Rename the `parameters` section to `grumphp`. Our default template contains two parameters which still need to remain under `parameters`. They are `git_dir` and `bin_dir`. Look at [the diff of the change](https://github.com/axelerant/drupal-quality-checker/commit/e8d9414ce6ea046b0386115764db68e5251d8a58#diff-94c8df1b4af91d80f7417cad14bbe0e5) to understand what needs to be changed in your grumphp.yml file. Also, read more at the [release page for GrumPHP 0.19](https://github.com/phpro/grumphp/releases/tag/v0.19.0).
