@@ -38,7 +38,6 @@ parameters:
         - css
         - info
         - txt
-        - md
     phpmd:
       whitelist_patterns:
         - /^web\/modules\/custom\/(.*)/
