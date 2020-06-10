@@ -154,3 +154,5 @@ For more details, read the ["Excluding Scaffold files"](https://github.com/drupa
 GrumPHP 0.19 introduced [a breaking change](https://github.com/phpro/grumphp/releases/tag/v0.19.0) to the structure of the YAML file. The template in this repository is updated as per the new structure. However, you would need to change the YML files on your projects before you update to Beta 9 or later.
 
 Fortunately, the change is simple and in many cases would only require a one line change. Rename the `parameters` section to `grumphp`. Our default template contains two parameters which still need to remain under `parameters`. They are `git_dir` and `bin_dir`. Look at [the diff of the change](https://github.com/axelerant/drupal-quality-checker/commit/e8d9414ce6ea046b0386115764db68e5251d8a58#diff-94c8df1b4af91d80f7417cad14bbe0e5) to understand what needs to be changed in your grumphp.yml file. Also, read more at the [release page for GrumPHP 0.19](https://github.com/phpro/grumphp/releases/tag/v0.19.0).
+
+Lastly, you can [watch this video](https://youtu.be/XoFJfBcZF58) where I upgrade this on a project. Link: https://youtu.be/XoFJfBcZF58
