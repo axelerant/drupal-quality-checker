@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0 / 2020-07-12
+
+* Replace abandoned package with replacement
+* Add video of upgrade to README
+
 ## 1.0.0-beta9 / 2020-06-10
 
 * Update README for changes from GrumPHP 0.19
