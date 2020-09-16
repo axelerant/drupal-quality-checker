@@ -17,7 +17,8 @@
         "phpcompatibility/php-compatibility": "^9.0",
         "phpmd/phpmd": "^2.8",
         "phpro/grumphp-shim": "^0.19.0",
-        "sebastian/phpcpd": "^3.0 || ^4.0"
+        "sebastian/phpcpd": "^3.0 || ^4.0",
+        "friendsoftwig/twigcs": "^3.2"
     },
     "require-dev": {
         "composer/composer": "^1.0"
