@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.0 / 2020-11-06
+
+* Allow more versions of phpcpd to be installed
+* Allow twigcs 4.0 to be used
+* Remove composer from require-dev
+* Fixes #6. Use GrumPHP stable version release
+* Merge pull request #5 from mohit-rocks/master
+* Adding support for twigcs so it gets automatically downloaded
+
 ## 1.0.0 / 2020-07-12
 
 * Replace abandoned package with replacement
