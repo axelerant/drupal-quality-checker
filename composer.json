@@ -18,7 +18,7 @@
         "phpcompatibility/php-compatibility": "^9.0",
         "phpmd/phpmd": "^2.8",
         "phpro/grumphp-shim": "^1.0.0",
-        "sebastian/phpcpd": "^3.0 || ^4.0"
+        "sebastian/phpcpd": "^3.0 || ^4.0 || ^5.0 || ^6.0"
     },
     "require-dev": {
     },
