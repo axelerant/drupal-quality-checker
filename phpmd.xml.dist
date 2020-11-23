@@ -17,6 +17,7 @@
   <!-- Import entire clean code rule set, modify StaticAccess rule -->
   <rule ref="rulesets/cleancode.xml">
     <exclude name="StaticAccess"/>
+    <exclude name="MissingImport"/>
   </rule>
   <rule ref="rulesets/cleancode.xml/StaticAccess">
     <properties>
