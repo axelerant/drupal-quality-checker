@@ -12,6 +12,7 @@ grumphp:
     jsonlint: ~
     twigcs:
       path: 'web'
+      ruleset: 'FriendsOfTwig\Twigcs\Ruleset\Official'
       exclude:
         - core
         - modules/contrib
