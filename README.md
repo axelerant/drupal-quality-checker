@@ -46,7 +46,7 @@ Then, copy all the `*.dist` from the library to your project root. The files cop
 * phpmd.xml.dist
 
 ```bash
-cp vendor/axelerant/drupal-quality-checker/*.yml.dist .
+cp vendor/axelerant/drupal-quality-checker/*.dist .
 ```
 
 ## Usage
