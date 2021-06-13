@@ -26,9 +26,13 @@ grumphp:
       ignore_patterns:
         - .github
         - .gitlab
+        - /config/
+        - /drush/
+        - /web/robots.txt
+        - /web/sites/default/
         - bower_components
         - node_modules
-        - vendor
+        - /vendor
       triggered_by:
         - php
         - module
