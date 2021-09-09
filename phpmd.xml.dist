@@ -26,6 +26,7 @@
           \DateTime,
           \DateInterval,
           \DateTimeZone,
+          \Drupal\Component\Plugin\Factory\DefaultFactory,
           \Drupal\Component\Utility\Html,
           \Drupal\Component\Utility\UrlHelper,
           \Drupal\Core\Access\AccessResult,
