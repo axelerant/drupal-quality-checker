@@ -35,6 +35,7 @@
           \Drupal\Core\Render\Element,
           \Drupal\Core\Annotation\Action,
           \Drupal\Core\Site\Settings,
+          \Drupal\Core\Render\Element\Checkboxes,
         </value>
       </property>
     </properties>
