@@ -33,6 +33,7 @@
           \Drupal\Core\Url,
           \Drupal\Core\Cache\Cache,
           \Drupal\Core\Render\Element,
+          \Drupal\Core\Render\Element\Checkboxes,
           \Drupal\Core\Annotation\Action,
           \Drupal\Core\Site\Settings,
         </value>
