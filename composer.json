@@ -40,6 +40,9 @@
                 "[project-root]/phpcs.xml.dist": "phpcs.xml.dist",
                 "[project-root]/phpmd.xml.dist": "phpmd.xml.dist"
             }
+        },
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
         }
     },
     "suggest": {
