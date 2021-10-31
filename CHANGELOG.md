@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.2.0 / 2021-10-31
+
+* Add a branch alias for 1.0.x
+* Enable a PHP 8 compatible version of TwigCS to be installed
+* Exclude "\Drupal\Core\Render\Element\Checkboxes" class of PHPMD StaticAccess rule (#17)
+* Exclude "\Drupal\Component\Plugin\Factory\DefaultFactory" static access
+* Exclude "\Drupal\Core\Site\Settings" static access
+* Add common ignores to PHPCS
+* Modify readme file to change syntax for copying all dist files
+* Explicitly set twigcs ruleset
+* Exclude MissingImport from cleancode rules
+
 ## 1.1.0 / 2020-11-06
 
 * Allow more versions of phpcpd to be installed
