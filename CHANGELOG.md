@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.4.0 / 2023-02-18
+
+* Fork project
+* Update README
+* Update requires :
+  * [drupal/coder](https://packagist.org/packages/drupal/coder) from `^8.3.7` to `8.3.*`
+  * [friendsoftwig/twigcs](https://packagist.org/packages/friendsoftwig/twigcs) from `^4.0 || ^5.0 || ^6.0` to `6.*`
+  * [php-parallel-lint/php-parallel-lint](https://packagist.org/packages/php-parallel-lint/php-parallel-lint) from `^1.2` to `1.3.*`
+  * [phpcompatibility/php-compatibility](https://packagist.org/packages/phpcompatibility/php-compatibility) from `^9.0` to `9.3.*`
+  * [phpmd/phpmd](https://packagist.org/packages/phpmd/phpmd) from `^2.8` to `2.13.*`
+  * [phpro/grumphp-shim](https://packagist.org/packages/phpro/grumphp-shim) from `^1.0.0` to `1.15.*`
+  * [sebastian/phpcpd](https://packagist.org/packages/sebastian/phpcpd) from `^1.0.0` to `6.0.3` (the latest version ever)
+* Add require-dev : [roave/security-advisories](https://packagist.org/packages/roave/security-advisories)
+* Use Drupal's logos
+* Add .idea in .gitignore
+* Update PHPCS & PHPMD dist files
+
+## 1.3.0 / 2022-12-17
+
+* Drop twigcs support for 3.2 and allow twigcs 6.0 to be used.
+* Change the error graphic for clarity
+
 ## 1.2.0 / 2021-10-31
 
 * Add a branch alias for 1.0.x

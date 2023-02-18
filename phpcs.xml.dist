@@ -1,11 +1,9 @@
-<?xml version="1.0" ?>
-<!--
-  Based on Examples for Developers phpcs.xml.dist. Modified for use for Drupal
-  projects. See https://git.drupalcode.org/project/examples/blob/HEAD/phpcs.xml.dist
-  for source.
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file is based on "Examples" project (https://git.drupalcode.org/project/examples).
+     Some rules were added by Axelerant (https://github.com/axelerant/drupal-quality-checker).
 -->
-<ruleset name="AxelerantDrupal">
-  <description>Axelerant baseline rules for PHP CodeSniffer</description>
+<ruleset name="ExamplesAndAxelerantDrupal">
+  <description>Default PHP CodeSniffer configuration for Drupal core with Axelerant baseline.</description>
   <file>.</file>
 
   <!-- PHPCS Arguments -->
@@ -147,6 +145,7 @@
   <rule ref="Drupal.WhiteSpace.ObjectOperatorSpacing"/>
   <rule ref="Drupal.WhiteSpace.OpenBracketSpacing"/>
   <rule ref="Drupal.WhiteSpace.OpenTagNewline"/>
+  <rule ref="Drupal.WhiteSpace.OperatorSpacing"/>
   <rule ref="Drupal.WhiteSpace.ScopeClosingBrace"/>
   <rule ref="Drupal.WhiteSpace.ScopeIndent"/>
 

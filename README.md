@@ -1,6 +1,7 @@
 # Package for Drupal Code Quality presets
 
-This has been customised from [vijaycs85/drupal-quality-checker](https://packagist.org/packages/vijaycs85/drupal-quality-checker) for Axelerant needs. Apart from a different template file, it uses the Axelerant logo.
+This has been customised from [axelerant/drupal-quality-checker](https://packagist.org/packages/axelerant/drupal-quality-checker) which has been customised from [vijaycs85/drupal-quality-checker](https://packagist.org/packages/vijaycs85/drupal-quality-checker).
+The goal is to have the initial project up to date while taking advantage of Axelerant's improvements. In order to be as global as possible, the Axelerant's logo has been replaced by Drupal's logo (from the initial project).
 
 ## Installation
 
@@ -16,7 +17,7 @@ In most cases, you would already be using the [`drupal/core-composer-scaffold`](
   "extra": {
     "drupal-scaffold": {
       "allowed-packages": [
-        "axelerant/drupal-quality-checker"
+        "johnatas-x/drupal-quality-checker"
       ],
       ...
     }
@@ -34,7 +35,7 @@ If you're not using the scaffolding plugin, the package won't copy the configura
 First, run `composer require` to include the package in your application.
 
 ```bash
-composer require --dev axelerant/drupal-quality-checker
+composer require --dev johnatas-x/drupal-quality-checker
 ```
 
 If you don't already have a `grumphp.yml` file in your project, GrumPHP would ask you to create one. Answer "No" to the prompt.
@@ -46,7 +47,7 @@ Then, copy all the `*.dist` from the library to your project root. The files cop
 * phpmd.xml.dist
 
 ```bash
-cp vendor/axelerant/drupal-quality-checker/*.dist .
+cp vendor/johnatas-x/drupal-quality-checker/*.dist .
 ```
 
 ## Usage
@@ -98,7 +99,7 @@ grumphp:
 Copy the ruleset to the project root first
 
 ```bash
-cp vendor/axelerant/drupal-quality-checker/phpmd.xml.dist phpmd.xml
+cp vendor/johnatas-x/drupal-quality-checker/phpmd.xml.dist phpmd.xml
 ```
 
 Edit it as per your needs and commit. Remember to modify the grumphp.yml file with the new path.
@@ -116,7 +117,7 @@ grumphp:
 Copy the ruleset to the project root first
 
 ```bash
-cp vendor/axelerant/drupal-quality-checker/phpcs.xml.dist phpcs.xml
+cp vendor/johnatas-x/drupal-quality-checker/phpcs.xml.dist phpcs.xml
 ```
 
 Edit it as per your needs and commit. Remember to modify the grumphp.yml file with the new path.
@@ -153,6 +154,6 @@ For more details, read the ["Excluding Scaffold files"](https://github.com/drupa
 
 GrumPHP 0.19 introduced [a breaking change](https://github.com/phpro/grumphp/releases/tag/v0.19.0) to the structure of the YAML file. The template in this repository is updated as per the new structure. However, you would need to change the YML files on your projects before you update to Beta 9 or later.
 
-Fortunately, the change is simple and in many cases would only require a one line change. Rename the `parameters` section to `grumphp`. Our default template contains two parameters which still need to remain under `parameters`. They are `git_dir` and `bin_dir`. Look at [the diff of the change](https://github.com/axelerant/drupal-quality-checker/commit/e8d9414ce6ea046b0386115764db68e5251d8a58#diff-94c8df1b4af91d80f7417cad14bbe0e5) to understand what needs to be changed in your grumphp.yml file. Also, read more at the [release page for GrumPHP 0.19](https://github.com/phpro/grumphp/releases/tag/v0.19.0).
+Fortunately, the change is simple and in many cases would only require a one line change. Rename the `parameters` section to `grumphp`. Our default template contains two parameters which still need to remain under `parameters`. They are `git_dir` and `bin_dir`. Look at [the diff of the change](https://github.com/johnatas-x/drupal-quality-checker/commit/e8d9414ce6ea046b0386115764db68e5251d8a58#diff-94c8df1b4af91d80f7417cad14bbe0e5) to understand what needs to be changed in your grumphp.yml file. Also, read more at the [release page for GrumPHP 0.19](https://github.com/phpro/grumphp/releases/tag/v0.19.0).
 
 Lastly, you can [watch this video](https://youtu.be/XoFJfBcZF58) where I upgrade this on a project. Link: https://youtu.be/XoFJfBcZF58

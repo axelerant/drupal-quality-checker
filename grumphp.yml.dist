@@ -3,8 +3,8 @@ parameters:
   bin_dir: vendor/bin
 grumphp:
   ascii:
-    failed: vendor/axelerant/drupal-quality-checker/resources/grumpy.txt
-    succeeded: vendor/axelerant/drupal-quality-checker/resources/happy.txt
+    failed: vendor/johnatas-x/drupal-quality-checker/resources/grumpy.txt
+    succeeded: vendor/johnatas-x/drupal-quality-checker/resources/happy.txt
   tasks:
     phplint: ~
     yamllint: ~
