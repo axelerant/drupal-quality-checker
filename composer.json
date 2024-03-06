@@ -19,9 +19,6 @@
         "phpmd/phpmd": "^2.8",
         "phpro/grumphp-shim": "^2.0"
     },
-    "replace": {
-        "sebastian/phpcpd": "*"
-    },
     "require-dev": {
     },
     "support": {
