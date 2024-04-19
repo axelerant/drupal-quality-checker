@@ -40,26 +40,6 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     private $io;
 
     /**
-     * @var bool
-     */
-    private $handledPackageEvent = false;
-
-    /**
-     * @var bool
-     */
-    private $configureScheduled = false;
-
-    /**
-     * @var bool
-     */
-    private $initScheduled = false;
-
-    /**
-     * @var bool
-     */
-    private $hasBeenRemoved = false;
-
-    /**
      * {@inheritdoc}
      */
     public function activate(Composer $composer, IOInterface $io): void
@@ -67,6 +47,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         $this->composer = $composer;
         $this->io = $io;
         echo "AxelerantDQC: inside activate";
+        $this->copyFilesToProject();
     }
 
     /**
@@ -116,6 +97,23 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     public function runScheduledTasks(Event $event): void
     {
       echo "AxelerantDQC: inside runScheduledTasks";
+    }
+
+     /**
+     * Copies files from plugin to the project where it's installed.
+     */
+    public function copyFilesToProject(PackageEvent $event): void
+    {
+        // Determine the destination directory in the project
+        $destination = getcwd();
+
+        // Copy each file to the project
+        copy(__DIR__ . '/grumphp.yml.dist', $destination . '/grumphp.yml.dist');
+        copy(__DIR__ . 'phpcs.xml.dist', $destination . '/phpcs.xml.dist');
+        copy(__DIR__ . '/phpmd.xml.dist', $destination . 'phpmd.xml.dist');
+
+        // Output message indicating the files are copied
+        $this->io->write('Files copied to project.');
     }
 
 }
