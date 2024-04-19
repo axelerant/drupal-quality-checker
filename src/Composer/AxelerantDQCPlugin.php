@@ -102,7 +102,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      /**
      * Copies files from plugin to the project where it's installed.
      */
-    public function copyFilesToProject(PackageEvent $event): void
+    public function copyFilesToProject(): void
     {
         // Determine the destination directory in the project
         $destination = getcwd();
