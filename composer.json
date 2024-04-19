@@ -35,9 +35,7 @@
         }
     },
     "extra": {
-        "extra": {
-            "class": "AxelerantDQC\\Composer\\AxelerantDQCPlugin"
-        },
+        "class": "AxelerantDQC\\Composer\\AxelerantDQCPlugin",
         "branch-alias": {
             "dev-main": "1.0.x-dev"
         }
