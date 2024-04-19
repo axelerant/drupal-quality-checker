@@ -108,9 +108,9 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         $destination = getcwd();
 
         // Copy each file to the project
-        copy(__DIR__ . '/grumphp.yml.dist', $destination . '/grumphp.yml.dist');
-        copy(__DIR__ . 'phpcs.xml.dist', $destination . '/phpcs.xml.dist');
-        copy(__DIR__ . '/phpmd.xml.dist', $destination . 'phpmd.xml.dist');
+        copy(__DIR__ . '/../../grumphp.yml.dist', $destination . '/grumphp.yml.dist');
+        copy(__DIR__ . '/../../phpcs.xml.dist', $destination . '/phpcs.xml.dist');
+        copy(__DIR__ . '/../../phpmd.xml.dist', $destination . '/phpmd.xml.dist');
 
         // Output message indicating the files are copied
         $this->io->write('Files copied to project.');
