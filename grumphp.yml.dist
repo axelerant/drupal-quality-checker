@@ -24,6 +24,7 @@ grumphp:
       ignore_patterns:
         - .github
         - .gitlab
+        - .ddev
         - /config/
         - /drush/
         - /web/robots.txt

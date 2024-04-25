@@ -6,10 +6,17 @@
 -->
 <ruleset name="AxelerantDrupal">
   <description>Axelerant baseline rules for PHP CodeSniffer</description>
+
+  <!--Exclude folders used by common frontend tools.-->
+  <exclude-pattern>*/bower_components/*</exclude-pattern>
+  <exclude-pattern>*/node_modules/*</exclude-pattern>
+  <!--Exclude third party code.-->
+  <exclude-pattern>./assets/vendor/*</exclude-pattern>
+
   <file>.</file>
 
   <!-- PHPCS Arguments -->
-  <arg name="extensions" value="inc,info.yml,install,module,php,profile,test,theme" />
+  <arg name="extensions" value="inc,yml,install,module,php,profile,test,theme" />
   <arg name="colors" />
 
   <!--Allow global variables in settings file.-->
