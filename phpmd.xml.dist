@@ -36,6 +36,10 @@
           \Drupal\Core\Render\Element\Checkboxes,
           \Drupal\Core\Annotation\Action,
           \Drupal\Core\Site\Settings,
+          \Drupal,
+          \Drupal\Core\Link,
+          \Drupal\Component\Serialization\Json,
+          \Drupal\Core\Entity\Element\EntityAutocomplete,
         </value>
       </property>
     </properties>
