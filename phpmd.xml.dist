@@ -21,29 +21,4 @@
     <exclude name="StaticAccess"/>
     <exclude name="MissingImport"/>
   </rule>
-  <rule ref="rulesets/cleancode.xml/StaticAccess">
-    <properties>
-      <property name="exceptions">
-        <value>
-          \DateTime,
-          \DateInterval,
-          \DateTimeZone,
-          \Drupal\Component\Plugin\Factory\DefaultFactory,
-          \Drupal\Component\Utility\Html,
-          \Drupal\Component\Utility\UrlHelper,
-          \Drupal\Core\Access\AccessResult,
-          \Drupal\Core\Url,
-          \Drupal\Core\Cache\Cache,
-          \Drupal\Core\Render\Element,
-          \Drupal\Core\Render\Element\Checkboxes,
-          \Drupal\Core\Annotation\Action,
-          \Drupal\Core\Site\Settings,
-          \Drupal,
-          \Drupal\Core\Link,
-          \Drupal\Component\Serialization\Json,
-          \Drupal\Core\Entity\Element\EntityAutocomplete,
-        </value>
-      </property>
-    </properties>
-  </rule>
 </ruleset>
