@@ -47,3 +47,23 @@ grumphp:
         - /^web\/modules\/custom\/(.*)/
       ruleset: ['phpmd.xml.dist']
       triggered_by: ['php']
+    phpstan:
+      configuration: phpstan.neon.dist
+      ignore_patterns:
+        - .github
+        - .gitlab
+        - .ddev
+        - /config/
+        - /drush/
+        - /web/robots.txt
+        - /web/sites/default/
+        - bower_components
+        - node_modules
+        - /vendor
+      triggered_by:
+        - php
+        - module
+        - theme
+        - inc
+      memory_limit: "-1"
+      use_grumphp_paths: true
