@@ -156,27 +156,6 @@
   <rule ref="Drupal.WhiteSpace.ScopeIndent"/>
 
   <!-- Drupal Practice sniffs -->
-  <rule ref="DrupalPractice.CodeAnalysis.VariableAnalysis">
-    <!-- @todo exclude tests -->
-    <exclude-pattern>*/tests/*</exclude-pattern>
-    <!-- Do not run this sniff on API files or transliteration data. -->
-    <exclude-pattern>*.api.php</exclude-pattern>
-    <properties>
-      <property name="allowUnusedFunctionParameters" value="true"/>
-    </properties>
-  </rule>
-  <rule ref="DrupalPractice.CodeAnalysis.VariableAnalysis.UndefinedUnsetVariable">
-    <severity>0</severity>
-  </rule>
-  <rule ref="DrupalPractice.CodeAnalysis.VariableAnalysis.UndefinedVariable">
-    <!-- Setting severity to 0 to completely disable an error message in this sniff, without excluding the whole sniff -->
-    <!-- See https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options#changing-the-default-severity-levels -->
-    <severity>0</severity>
-    <rule ref="DrupalPractice.Objects.GlobalFunction">
-       <include-pattern>*/Plugin/*</include-pattern>
-    </rule>
-  </rule>
-
   <rule ref="DrupalPractice.Commenting.ExpectedException"/>
 
   <!-- Generic sniffs -->
