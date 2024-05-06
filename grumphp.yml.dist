@@ -6,7 +6,19 @@ grumphp:
     failed: vendor/axelerant/drupal-quality-checker/resources/grumpy.txt
     succeeded: vendor/axelerant/drupal-quality-checker/resources/happy.txt
   tasks:
-    phplint: ~
+    phplint:
+      exclude:
+        - web/core
+        - web/modules/contrib
+        - web/themes/contrib
+        - web/profiles/contrib
+        - web/sites/default
+        - vendor
+      triggered_by:
+        - php
+        - module
+        - theme
+        - inc
     yamllint: ~
     composer: ~
     jsonlint: ~
