@@ -46,5 +46,10 @@ grumphp:
     phpmd:
       whitelist_patterns:
         - /^web\/modules\/custom\/(.*)/
-      ruleset: ['phpmd.xml.dist']
-      triggered_by: ['php']
+        - /^web\/themes\/custom\/(.*)/
+      ruleset:
+        - phpmd.xml.dist
+      triggered_by:
+        - php
+        - module
+        - theme
