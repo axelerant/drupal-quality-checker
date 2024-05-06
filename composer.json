@@ -42,7 +42,8 @@
                     "overwrite": false
                 },
                 "[project-root]/phpcs.xml.dist": "phpcs.xml.dist",
-                "[project-root]/phpmd.xml.dist": "phpmd.xml.dist"
+                "[project-root]/phpmd.xml.dist": "phpmd.xml.dist",
+                "[project-root]/phpstan.neon.dist": "phpstan.neon.dist"
             }
         },
         "branch-alias": {
