@@ -44,6 +44,7 @@ Then, copy all the `*.dist` from the library to your project root. The files cop
 * grumphp.yml.dist
 * phpcs.xml.dist
 * phpmd.xml.dist
+* phpstan.neon.dist
 
 ```bash
 cp vendor/axelerant/drupal-quality-checker/*.dist .
@@ -127,6 +128,24 @@ grumphp:
   tasks:
     phpcs:
       standard: ['phpcs.xml']
+```
+
+### Customise phpstan rules
+
+Copy the ruleset to the project root first
+
+```bash
+cp vendor/axelerant/drupal-quality-checker/phpstan.neon.dist phpstan.neon
+```
+
+Edit it as per your needs and commit. Remember to modify the grumphp.yml file with the new path.
+
+```yaml
+# grumphp.yml
+grumphp:
+  tasks:
+    phpstan:
+      configuration: phpstan.neon
 ```
 
 ## More about scaffolding
