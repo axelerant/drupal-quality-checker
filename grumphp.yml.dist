@@ -6,7 +6,19 @@ grumphp:
     failed: vendor/axelerant/drupal-quality-checker/resources/grumpy.txt
     succeeded: vendor/axelerant/drupal-quality-checker/resources/happy.txt
   tasks:
-    phplint: ~
+    phplint:
+      exclude:
+        - web/core
+        - web/modules/contrib
+        - web/themes/contrib
+        - web/profiles/contrib
+        - web/sites/default
+        - vendor
+      triggered_by:
+        - php
+        - module
+        - theme
+        - inc
     yamllint: ~
     composer: ~
     jsonlint: ~
@@ -24,6 +36,7 @@ grumphp:
       ignore_patterns:
         - .github
         - .gitlab
+        - .ddev
         - /config/
         - /drush/
         - /web/robots.txt
@@ -45,8 +58,13 @@ grumphp:
     phpmd:
       whitelist_patterns:
         - /^web\/modules\/custom\/(.*)/
-      ruleset: ['phpmd.xml.dist']
-      triggered_by: ['php']
+        - /^web\/themes\/custom\/(.*)/
+      ruleset:
+        - phpmd.xml.dist
+      triggered_by:
+        - php
+        - module
+        - theme
     phpstan:
       configuration: phpstan.neon.dist
       ignore_patterns:

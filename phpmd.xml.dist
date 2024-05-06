@@ -9,35 +9,15 @@
   </description>
 
   <!-- Import common rulesets -->
-  <rule ref="rulesets/codesize.xml"/>
   <rule ref="rulesets/design.xml"/>
   <rule ref="rulesets/naming.xml"/>
-  <rule ref="rulesets/unusedcode.xml"/>
+  <rule ref="rulesets/unusedcode.xml">
+    <exclude name="UnusedFormalParameter"/>
+  </rule>
 
   <!-- Import entire clean code rule set, modify StaticAccess rule -->
   <rule ref="rulesets/cleancode.xml">
     <exclude name="StaticAccess"/>
     <exclude name="MissingImport"/>
-  </rule>
-  <rule ref="rulesets/cleancode.xml/StaticAccess">
-    <properties>
-      <property name="exceptions">
-        <value>
-          \DateTime,
-          \DateInterval,
-          \DateTimeZone,
-          \Drupal\Component\Plugin\Factory\DefaultFactory,
-          \Drupal\Component\Utility\Html,
-          \Drupal\Component\Utility\UrlHelper,
-          \Drupal\Core\Access\AccessResult,
-          \Drupal\Core\Url,
-          \Drupal\Core\Cache\Cache,
-          \Drupal\Core\Render\Element,
-          \Drupal\Core\Render\Element\Checkboxes,
-          \Drupal\Core\Annotation\Action,
-          \Drupal\Core\Site\Settings,
-        </value>
-      </property>
-    </properties>
   </rule>
 </ruleset>
