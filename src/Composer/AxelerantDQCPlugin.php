@@ -86,6 +86,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         copy(__DIR__ . '/../../grumphp.yml.dist', $destination . '/grumphp.yml.dist');
         copy(__DIR__ . '/../../phpcs.xml.dist', $destination . '/phpcs.xml.dist');
         copy(__DIR__ . '/../../phpmd.xml.dist', $destination . '/phpmd.xml.dist');
+        copy(__DIR__ . '/../../phpstan.neon.dist', $destination . '/phpstan.neon.dist');
 
         // Output message indicating the files are copied
         $this->io->write('Config files copied successfully!');
