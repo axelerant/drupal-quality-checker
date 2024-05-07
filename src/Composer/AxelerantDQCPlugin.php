@@ -79,7 +79,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
             PackageEvents::PRE_PACKAGE_UPDATE => ['packageEventAction', 10],
             PackageEvents::PRE_PACKAGE_UNINSTALL => ['packageEventAction', 10],
             ScriptEvents::POST_INSTALL_CMD => 'scriptEventAction',
-            ScriptEvents::POST_UPDATE_CMD => ['scriptEventAction', 10],
+            ScriptEvents::POST_UPDATE_CMD => 'scriptEventAction',
         ];
     }
 
