@@ -33,25 +33,10 @@
         }
     },
     "extra": {
-        "drupal-scaffold": {
-            "file-mapping": {
-                "[project-root]/grumphp.yml.dist": {
-                    "mode": "replace",
-                    "path": "grumphp.yml.dist",
-                    "overwrite": false
-                },
-                "[project-root]/phpcs.xml.dist": "phpcs.xml.dist",
-                "[project-root]/phpmd.xml.dist": "phpmd.xml.dist",
-                "[project-root]/phpstan.neon.dist": "phpstan.neon.dist"
-            }
-        },
         "branch-alias": {
             "dev-main": "1.0.x-dev"
         },
         "class": "AxelerantDQC\\Composer\\AxelerantDQCPlugin"
-    },
-    "suggest": {
-        "drupal/core-composer-scaffold": "Scaffold relevant files in project root. Add axelerant/drupal-quality-checker to extra.drupal-scaffold.allowed-packages."
     },
     "autoload": {
         "psr-4": {
