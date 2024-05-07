@@ -46,7 +46,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     {
         $this->composer = $composer;
         $this->io = $io;
-        echo "AxelerantDQC: inside activate";
+        echo "AxelerantDQC: inside activate" . PHP_EOL;
         $this->copyFilesToProject();
     }
 
@@ -55,7 +55,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function deactivate(Composer $composer, IOInterface $io): void
     {
-      echo "AxelerantDQC: inside de-activate";
+      echo "AxelerantDQC: inside de-activate" . PHP_EOL;
     }
 
     /**
@@ -63,7 +63,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function uninstall(Composer $composer, IOInterface $io): void
     {
-      echo "AxelerantDQC: inside uninstall";
+      echo "AxelerantDQC: inside uninstall" . PHP_EOL;
     }
 
     /**
@@ -91,12 +91,12 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function packageEventAction(PackageEvent $event): void
     {
-        echo "AxelerantDQC: inside detectGrumphpAction - " . $event->getName();
+        echo "AxelerantDQC: inside detectGrumphpAction - " . $event->getName() . PHP_EOL;
     }
 
     public function scriptEventAction(Event $event): void
     {
-        echo "AxelerantDQC: inside scriptEventAction - " . $event->getName();
+        echo "AxelerantDQC: inside scriptEventAction - " . $event->getName() . PHP_EOL;
     }
 
      /**
