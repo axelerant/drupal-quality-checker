@@ -86,6 +86,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     public function scriptEventAction(Event $event): void
     {
         echo "AxelerantDQC: inside scriptEventAction - " . $event->getName() . PHP_EOL;
+        $this->copyFilesToProject();
     }
 
      /**
@@ -102,7 +103,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         copy(__DIR__ . '/../../phpmd.xml.dist', $destination . '/phpmd.xml.dist');
 
         // Output message indicating the files are copied
-        $this->io->write('Files copied to project.');
+        $this->io->write('<fg=green>Config file copied successfully!</fg=red>');
     }
 
 }
