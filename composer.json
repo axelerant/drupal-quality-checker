@@ -1,6 +1,6 @@
 {
     "name": "axelerant/drupal-quality-checker",
-    "type": "project",
+    "type": "composer-plugin",
     "description": "Code quality checking tools for Drupal project.",
     "homepage": "https://github.com/axelerant/drupal-quality-checker",
     "license": "proprietary",
@@ -11,6 +11,7 @@
         }
     ],
     "require": {
+        "composer-plugin-api": "^2.0",
         "dealerdirect/phpcodesniffer-composer-installer": "*",
         "drupal/coder": "^8.3.7",
         "friendsoftwig/twigcs": "^4.0 || ^5.0 || ^6.0",
@@ -19,8 +20,6 @@
         "phpcompatibility/php-compatibility": "^9.0",
         "phpmd/phpmd": "^2.8",
         "phpro/grumphp-shim": "^2.0"
-    },
-    "require-dev": {
     },
     "support": {
         "issues": "https://github.com/axelerant/drupal-quality-checker/issues",
@@ -48,9 +47,18 @@
         },
         "branch-alias": {
             "dev-main": "1.0.x-dev"
-        }
+        },
+        "class": "AxelerantDQC\\Composer\\AxelerantDQCPlugin"
     },
     "suggest": {
         "drupal/core-composer-scaffold": "Scaffold relevant files in project root. Add axelerant/drupal-quality-checker to extra.drupal-scaffold.allowed-packages."
+    },
+    "autoload": {
+        "psr-4": {
+            "AxelerantDQC\\": "src"
+        }
+    },
+    "require-dev": {
+        "composer/composer": "^2.7"
     }
 }
