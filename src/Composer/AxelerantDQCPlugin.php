@@ -74,12 +74,12 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            PackageEvents::PRE_PACKAGE_INSTALL => ['detectGrumphpAction', 10],
-            PackageEvents::POST_PACKAGE_INSTALL => ['detectGrumphpAction', 10],
-            PackageEvents::PRE_PACKAGE_UPDATE => ['detectGrumphpAction', 10],
-            PackageEvents::PRE_PACKAGE_UNINSTALL => ['detectGrumphpAction', 10],
-            ScriptEvents::POST_INSTALL_CMD => ['detectGrumphpAction', 10],
-            ScriptEvents::POST_UPDATE_CMD => ['detectGrumphpAction', 10],
+            PackageEvents::PRE_PACKAGE_INSTALL => ['packageEventAction', 10],
+            PackageEvents::POST_PACKAGE_INSTALL => ['packageEventAction', 10],
+            PackageEvents::PRE_PACKAGE_UPDATE => ['packageEventAction', 10],
+            PackageEvents::PRE_PACKAGE_UNINSTALL => ['packageEventAction', 10],
+            ScriptEvents::POST_INSTALL_CMD => ['scriptEventAction', 10],
+            ScriptEvents::POST_UPDATE_CMD => ['scriptEventAction', 10],
         ];
     }
 
@@ -89,9 +89,14 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      * The goal is to run it as fast as possible.
      * For first install, this should also happen on POST install (because otherwise the plugin doesn't exist yet)
      */
-    public function detectGrumphpAction(Event $event): void
+    public function packageEventAction(PackageEvent $event): void
     {
         echo "AxelerantDQC: inside detectGrumphpAction - " . $event->getName();
+    }
+
+    public function scriptEventAction(Event $event): void
+    {
+        echo "AxelerantDQC: inside scriptEventAction - " . $event->getName();
     }
 
      /**
