@@ -47,7 +47,6 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         $this->composer = $composer;
         $this->io = $io;
         echo "AxelerantDQC: inside activate" . PHP_EOL;
-        $this->copyFilesToProject();
     }
 
     /**
@@ -74,26 +73,16 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            PackageEvents::PRE_PACKAGE_INSTALL => ['packageEventAction', 10],
-            PackageEvents::POST_PACKAGE_INSTALL => ['packageEventAction', 10],
-            PackageEvents::PRE_PACKAGE_UPDATE => ['packageEventAction', 10],
-            PackageEvents::PRE_PACKAGE_UNINSTALL => ['packageEventAction', 10],
-            ScriptEvents::POST_INSTALL_CMD => 'scriptEventAction',
-            ScriptEvents::POST_UPDATE_CMD => 'scriptEventAction',
+            ScriptEvents::POST_INSTALL_CMD => ['scriptEventAction', 10],
+            ScriptEvents::POST_UPDATE_CMD => ['scriptEventAction', 10],
         ];
     }
 
     /**
-     * This method can be called by pre/post package events;
-     * We make sure to only run it once. This way Grumphp won't execute multiple times.
-     * The goal is to run it as fast as possible.
-     * For first install, this should also happen on POST install (because otherwise the plugin doesn't exist yet)
+     * Attach script installation events.
+     *
+     * {@inheritdoc}
      */
-    public function packageEventAction(PackageEvent $event): void
-    {
-        echo "AxelerantDQC: inside packageEventAction - " . $event->getName() . PHP_EOL;
-    }
-
     public function scriptEventAction(Event $event): void
     {
         echo "AxelerantDQC: inside scriptEventAction - " . $event->getName() . PHP_EOL;
