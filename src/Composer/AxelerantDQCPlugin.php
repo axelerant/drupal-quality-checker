@@ -74,12 +74,12 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            PackageEvents::PRE_PACKAGE_INSTALL => 'detectGrumphpAction',
-            PackageEvents::POST_PACKAGE_INSTALL => 'detectGrumphpAction',
-            PackageEvents::PRE_PACKAGE_UPDATE => 'detectGrumphpAction',
-            PackageEvents::PRE_PACKAGE_UNINSTALL => 'detectGrumphpAction',
-            ScriptEvents::POST_INSTALL_CMD => 'runScheduledTasks',
-            ScriptEvents::POST_UPDATE_CMD => 'runScheduledTasks',
+            PackageEvents::PRE_PACKAGE_INSTALL => ['detectGrumphpAction', 10],
+            PackageEvents::POST_PACKAGE_INSTALL => ['detectGrumphpAction', 10],
+            PackageEvents::PRE_PACKAGE_UPDATE => ['detectGrumphpAction', 10],
+            PackageEvents::PRE_PACKAGE_UNINSTALL => ['detectGrumphpAction', 10],
+            ScriptEvents::POST_INSTALL_CMD => ['detectGrumphpAction', 10],
+            ScriptEvents::POST_UPDATE_CMD => ['detectGrumphpAction', 10],
         ];
     }
 
@@ -91,12 +91,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function detectGrumphpAction(PackageEvent $event): void
     {
-        echo "AxelerantDQC: inside detectGrumphpAction";
-    }
-
-    public function runScheduledTasks(Event $event): void
-    {
-      echo "AxelerantDQC: inside runScheduledTasks";
+        echo "AxelerantDQC: inside detectGrumphpAction - " . $event->getName();
     }
 
      /**
