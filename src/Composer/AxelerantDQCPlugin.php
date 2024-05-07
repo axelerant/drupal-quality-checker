@@ -103,7 +103,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         copy(__DIR__ . '/../../phpmd.xml.dist', $destination . '/phpmd.xml.dist');
 
         // Output message indicating the files are copied
-        $this->io->write('<fg=green>Config file copied successfully!</fg=red>');
+        $this->io->write('Config file copied successfully!');
     }
 
 }
