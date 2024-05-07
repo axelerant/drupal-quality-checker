@@ -351,4 +351,8 @@
   <!-- Zend sniffs -->
   <rule ref="Zend.Files.ClosingTag"/>
 
+  <!-- sniffs from https://github.com/acquia/coding-standards-php -->
+  <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses" />
+  <rule ref="SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable" />
+
 </ruleset>
