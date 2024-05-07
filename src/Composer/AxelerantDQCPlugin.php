@@ -89,7 +89,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      * The goal is to run it as fast as possible.
      * For first install, this should also happen on POST install (because otherwise the plugin doesn't exist yet)
      */
-    public function detectGrumphpAction(PackageEvent $event): void
+    public function detectGrumphpAction(Event $event): void
     {
         echo "AxelerantDQC: inside detectGrumphpAction - " . $event->getName();
     }
