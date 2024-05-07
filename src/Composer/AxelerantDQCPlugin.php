@@ -78,7 +78,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
             PackageEvents::POST_PACKAGE_INSTALL => ['packageEventAction', 10],
             PackageEvents::PRE_PACKAGE_UPDATE => ['packageEventAction', 10],
             PackageEvents::PRE_PACKAGE_UNINSTALL => ['packageEventAction', 10],
-            ScriptEvents::POST_INSTALL_CMD => ['scriptEventAction', 10],
+            ScriptEvents::POST_INSTALL_CMD => 'scriptEventAction',
             ScriptEvents::POST_UPDATE_CMD => ['scriptEventAction', 10],
         ];
     }
@@ -91,7 +91,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function packageEventAction(PackageEvent $event): void
     {
-        echo "AxelerantDQC: inside detectGrumphpAction - " . $event->getName() . PHP_EOL;
+        echo "AxelerantDQC: inside packageEventAction - " . $event->getName() . PHP_EOL;
     }
 
     public function scriptEventAction(Event $event): void
