@@ -5,15 +5,8 @@ declare(strict_types=1);
 namespace AxelerantDQC\Composer;
 
 use Composer\Composer;
-use Composer\DependencyResolver\Operation\InstallOperation;
-use Composer\DependencyResolver\Operation\OperationInterface;
-use Composer\DependencyResolver\Operation\UninstallOperation;
-use Composer\DependencyResolver\Operation\UpdateOperation;
 use Composer\EventDispatcher\EventSubscriberInterface;
-use Composer\Installer\PackageEvent;
-use Composer\Installer\PackageEvents;
 use Composer\IO\IOInterface;
-use Composer\Package\PackageInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
@@ -23,12 +16,6 @@ use Composer\Script\ScriptEvents;
  */
 class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
 {
-    private const PACKAGE_NAME = 'phpro/grumphp';
-    private const APP_NAME = 'grumphp';
-    private const COMMAND_CONFIGURE = 'configure';
-    private const COMMAND_INIT = 'git:init';
-    private const COMMAND_DEINIT = 'git:deinit';
-
     /**
      * @var Composer
      */
@@ -46,7 +33,6 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     {
         $this->composer = $composer;
         $this->io = $io;
-        echo "AxelerantDQC: inside activate" . PHP_EOL;
     }
 
     /**
@@ -54,7 +40,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function deactivate(Composer $composer, IOInterface $io): void
     {
-      echo "AxelerantDQC: inside de-activate" . PHP_EOL;
+
     }
 
     /**
@@ -62,7 +48,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function uninstall(Composer $composer, IOInterface $io): void
     {
-      echo "AxelerantDQC: inside uninstall" . PHP_EOL;
+
     }
 
     /**
@@ -85,7 +71,6 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function scriptEventAction(Event $event): void
     {
-        echo "AxelerantDQC: inside scriptEventAction - " . $event->getName() . PHP_EOL;
         $this->copyFilesToProject();
     }
 
@@ -103,7 +88,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         copy(__DIR__ . '/../../phpmd.xml.dist', $destination . '/phpmd.xml.dist');
 
         // Output message indicating the files are copied
-        $this->io->write('Config file copied successfully!');
+        $this->io->write('Config files copied successfully!');
     }
 
 }
