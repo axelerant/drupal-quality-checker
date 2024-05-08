@@ -97,7 +97,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         // Determine the destination directory in the project
         $destination = $this->locateProjectRoot();
         if ($destination === FALSE) {
-            $this->io->writeError('Copying configuration file failed. Unable to determine project root dir. Please copy configuration files manually.');
+            $this->io->writeError('<fg=red>Copying configuration file failed. Unable to determine project root dir. Please copy configuration files manually.</fg=red>');
             return;
         }
         $pluginDirectory = realpath(__DIR__ . '/../../');
