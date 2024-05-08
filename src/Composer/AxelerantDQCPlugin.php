@@ -78,6 +78,9 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         }
         $pluginDirectory = realpath(__DIR__ . '/../../');
 
+        // Check if config already present.
+        $configPresent = file_exists($destination . '/grumphp.yml.dist');
+
         // Copy each file to the project root.
         $configFiles = ['grumphp.yml.dist', 'phpcs.xml.dist', 'phpmd.xml.dist', 'phpstan.neon.dist'];
         foreach ($configFiles as $filename) {
@@ -87,7 +90,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         }
 
         // Output message indicating the files are copied with warning if exists.
-        if (file_exists($destination . '/grumphp.yml.dist')) {
+        if ($configPresent) {
             $this->io->write('<fg=yellow>Configuration files are overwritten. Please watchout for any changes!</fg=yellow>');
         }
         else {
