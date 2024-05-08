@@ -115,7 +115,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      * Locate Project root path
      */
     public function locateProjectRoot(): string|bool {
-
+        return FALSE;
         $paths = [
             getcwd(),
             dirname($this->composer->getConfig()->get('bin-dir'), 2),
