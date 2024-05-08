@@ -79,10 +79,12 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         $pluginDirectory = realpath(__DIR__ . '/../../');
 
         // Copy each file to the project root.
-        copy($pluginDirectory . '/grumphp.yml.dist', $destination . '/grumphp.yml.dist');
-        copy($pluginDirectory . '/phpcs.xml.dist', $destination . '/phpcs.xml.dist');
-        copy($pluginDirectory . '/phpmd.xml.dist', $destination . '/phpmd.xml.dist');
-        copy($pluginDirectory . '/phpstan.neon.dist', $destination . '/phpstan.neon.dist');
+        $configFiles = ['grumphp.yml.dist', 'phpcs.xml.dist', 'phpmd.xml.dist', 'phpstan.neon.dist'];
+        foreach ($configFiles as $filename) {
+            $sourcePath = $pluginDirectory . '/' . $filename;
+            $destinationPath = $destination . '/' . $filename;
+            copy($sourcePath, $destinationPath);
+        }
 
         // Output message indicating the files are copied with warning if exists.
         if (file_exists($destination . '/grumphp.yml.dist')) {
