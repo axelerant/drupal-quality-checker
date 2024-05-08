@@ -65,7 +65,9 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
-     * Copies files from plugin to the project where it's installed.
+     * Copies configuration files to the project root directory.
+     *
+     * @param Event $event The Composer event.
      */
     public function copyFilesToProjectRoot(Event $event): void
     {
@@ -92,7 +94,9 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
-     * Locate Project root path.
+     * Locates the project root path.
+     *
+     * @return string|bool The project root path or FALSE if not found.
      */
     private function locateProjectRoot(): string|bool {
         $paths = [
@@ -104,11 +108,11 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
-     * Build path
+     * Builds a path.
      *
-     * @param string $baseDir
-     * @param string $path
-     * @return string
+     * @param string $baseDir The base directory.
+     * @param string $path The path.
+     * @return string The built path.
      */
     private function buildPath(string $baseDir, string $path): string
     {
@@ -116,11 +120,11 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
-     * Guess path using filename.
+     * Guesses the path using the filename.
      *
-     * @param array $paths
-     * @param string $filename
-     * @return string|bool
+     * @param array $paths The paths to search.
+     * @param string $filename The filename to search for.
+     * @return string|bool The guessed path or FALSE if not found.
      */
     private function guessPath(array $paths, string $filename): string|bool
     {
