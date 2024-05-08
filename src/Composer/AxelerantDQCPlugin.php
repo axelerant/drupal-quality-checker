@@ -108,14 +108,19 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         copy($pluginDirectory . '/phpmd.xml.dist', $destination . '/phpmd.xml.dist');
 
         // Output message indicating the files are copied
-        $this->io->write('Config file copied successfully!');
+        if (file_exists($destination . '/grumphp.yml.dist')) {
+            $this->io->write('<fg=yellow>Configuration files are overwritten. Please watchout for any changes!</fg=yellow>');
+        }
+        else {
+            $this->io->write('<fg=green>Configuration files are copies successfully.</fg=green>');
+        }
+
     }
 
     /**
      * Locate Project root path
      */
     public function locateProjectRoot(): string|bool {
-        return FALSE;
         $paths = [
             getcwd(),
             dirname($this->composer->getConfig()->get('bin-dir'), 2),
