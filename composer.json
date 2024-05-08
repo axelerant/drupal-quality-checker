@@ -37,7 +37,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpro/grumphp": true
+            "phpro/grumphp": true,
+            "phpro/grumphp-shim": false
         }
     },
     "extra": {
