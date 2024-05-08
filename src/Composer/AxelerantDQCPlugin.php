@@ -85,7 +85,7 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function scriptEventAction(Event $event): void
     {
-        echo "AxelerantDQC: inside scriptEventAction - " . $event->getName() . PHP_EOL;
+        echo "AxelerantDQC: inside scriptEventAction - " . $event->getName() . '-' . $event->getComposer()->getInstallationManager()->getInstallPath($this->composer->getPackage())  . PHP_EOL;
         $this->copyFilesToProject();
     }
 
