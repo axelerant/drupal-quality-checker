@@ -85,11 +85,12 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function scriptEventAction(Event $event): void
     {
-        echo "AxelerantDQC: inside scriptEventAction - " . $event->getName() . '-' . $this->composer->getConfig()->get('bin-dir')  . PHP_EOL;
+        echo "AxelerantDQC: inside scriptEventAction - " . $event->getName() . '-' . $this->composer->getConfig()->get('vendor-dir')  . PHP_EOL;
+        $this->io->
         $this->copyFilesToProject();
     }
 
-     /**
+    /**
      * Copies files from plugin to the project where it's installed.
      */
     public function copyFilesToProject(): void
@@ -104,6 +105,43 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
 
         // Output message indicating the files are copied
         $this->io->write('Config file copied successfully!');
+    }
+
+    /**
+     * Locate Project root path
+     */
+    public function locateProjectRoot(): string|bool {
+        $rootDir = $this->guessUsingBinDir();
+        if ($rootDir !== FALSE) {
+            return $rootDir;
+        }
+
+    }
+
+    /**
+     * Guess project root from bin dir.
+     */
+    public function guessUsingBinDir(): string|bool {
+        $binPath = $this->composer->getConfig()->get('bin-dir');
+        $guessedPath = dirname($binPath, 2);
+
+        $composerPath = $this->buildPath($guessedPath, 'composer.json');
+        if (file_exists($composerPath)) {
+            return $guessedPath;
+        }
+        return FALSE;
+    }
+
+    /**
+     * Build path
+     *
+     * @param string $baseDir
+     * @param string $path
+     * @return string
+     */
+    public function buildPath(string $baseDir, string $path): string
+    {
+        return $baseDir.DIRECTORY_SEPARATOR.$path;
     }
 
 }
