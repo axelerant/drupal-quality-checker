@@ -86,7 +86,6 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     public function scriptEventAction(Event $event): void
     {
         echo "AxelerantDQC: inside scriptEventAction - " . $event->getName() . '-' . $this->composer->getConfig()->get('vendor-dir')  . PHP_EOL;
-        $this->io->
         $this->copyFilesToProject();
     }
 
@@ -96,12 +95,17 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     public function copyFilesToProject(): void
     {
         // Determine the destination directory in the project
-        $destination = getcwd();
+        $destination = $this->locateProjectRoot();
+        if ($destination === FALSE) {
+            $this->io->writeError('Copying configuration file failed. Unable to determine project root dir. Please copy configuration files manually.');
+            return;
+        }
+        $pluginDirectory = realpath(__DIR__ . '/../../');
 
         // Copy each file to the project
-        copy(__DIR__ . '/../../grumphp.yml.dist', $destination . '/grumphp.yml.dist');
-        copy(__DIR__ . '/../../phpcs.xml.dist', $destination . '/phpcs.xml.dist');
-        copy(__DIR__ . '/../../phpmd.xml.dist', $destination . '/phpmd.xml.dist');
+        copy($pluginDirectory . '/grumphp.yml.dist', $destination . '/grumphp.yml.dist');
+        copy($pluginDirectory . '/phpcs.xml.dist', $destination . '/phpcs.xml.dist');
+        copy($pluginDirectory . '/phpmd.xml.dist', $destination . '/phpmd.xml.dist');
 
         // Output message indicating the files are copied
         $this->io->write('Config file copied successfully!');
@@ -111,25 +115,13 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
      * Locate Project root path
      */
     public function locateProjectRoot(): string|bool {
-        $rootDir = $this->guessUsingBinDir();
-        if ($rootDir !== FALSE) {
-            return $rootDir;
-        }
 
-    }
-
-    /**
-     * Guess project root from bin dir.
-     */
-    public function guessUsingBinDir(): string|bool {
-        $binPath = $this->composer->getConfig()->get('bin-dir');
-        $guessedPath = dirname($binPath, 2);
-
-        $composerPath = $this->buildPath($guessedPath, 'composer.json');
-        if (file_exists($composerPath)) {
-            return $guessedPath;
-        }
-        return FALSE;
+        $paths = [
+            getcwd(),
+            dirname($this->composer->getConfig()->get('bin-dir'), 2),
+            dirname($this->composer->getConfig()->get('vendor-dir'), 1),
+        ];
+        return $this->guessPath($paths, 'composer.json');
     }
 
     /**
@@ -142,6 +134,30 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     public function buildPath(string $baseDir, string $path): string
     {
         return $baseDir.DIRECTORY_SEPARATOR.$path;
+    }
+
+    /**
+     * Guess path using filename.
+     *
+     * @param array $paths
+     * @param string $filename
+     * @return string|bool
+     */
+    public function guessPath(array $paths, string $filename): string|bool
+    {
+        $paths = array_filter($paths);
+
+        foreach ($paths as $path) {
+            if (!is_dir($path)) {
+                continue;
+            }
+
+            $filePath = $this->buildPath($path, $filename);
+            if (file_exists($filePath)) {
+                return $path;
+            }
+        }
+        return FALSE;
     }
 
 }
