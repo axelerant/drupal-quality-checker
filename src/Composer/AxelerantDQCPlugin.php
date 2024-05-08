@@ -52,32 +52,22 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
-     * Attach package installation events:.
+     * Attach package installation events. Priority of 10 is added to tigger it before GrumPHP plugin.
      *
      * {@inheritdoc}
      */
     public static function getSubscribedEvents(): array
     {
         return [
-            ScriptEvents::POST_INSTALL_CMD => ['scriptEventAction', 10],
-            ScriptEvents::POST_UPDATE_CMD => ['scriptEventAction', 10],
+            ScriptEvents::POST_INSTALL_CMD => ['copyFilesToProjectRoot', 10],
+            ScriptEvents::POST_UPDATE_CMD => ['copyFilesToProjectRoot', 10],
         ];
     }
 
     /**
-     * Attach script installation events.
-     *
-     * {@inheritdoc}
+     * Copies files from plugin to the project root where it's installed.
      */
-    public function scriptEventAction(Event $event): void
-    {
-        $this->copyFilesToProject();
-    }
-
-     /**
-     * Copies files from plugin to the project where it's installed.
-     */
-    public function copyFilesToProject(): void
+    public function copyFilesToProjectRoot(Event $event): void
     {
         // Determine the destination directory in the project
         $destination = getcwd();
