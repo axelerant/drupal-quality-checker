@@ -6,49 +6,18 @@ This has been customised from [vijaycs85/drupal-quality-checker](https://packagi
 
 _Upgrading from Beta 8?_ Read [the instructions for changes](#upgrading-from-beta-8) you need to make to grumphp.yml.dist.
 
-### When using drupal/core-composer-scaffold (recommended)
-
-In most cases, you would already be using the [`drupal/core-composer-scaffold`](https://packagist.org/packages/drupal/core-composer-scaffold) package if you have set up using the latest Drupal templates. This package uses `core-composer-scaffold` to set up configuration files in your project. To make this work, add this package name in your composer's `extra.drupal-scaffold.allowed-packages` section.
-
-```json
- "name": "my/project",
-  ...
-  "extra": {
-    "drupal-scaffold": {
-      "allowed-packages": [
-        "axelerant/drupal-quality-checker"
-      ],
-      ...
-    }
-  }
-```
-
-Now, run `composer require` to include the package in your application. Since the package is now allowed, the `core-composer-scaffold` package will copy the configuration files.
-
-See [More about scaffolding](#more-about-scaffolding) for more details.
-
-### Without drupal/core-composer-scaffold
-
-If you're not using the scaffolding plugin, the package won't copy the configuration files as expected.
-
-First, run `composer require` to include the package in your application.
-
 ```bash
 composer require --dev axelerant/drupal-quality-checker
 ```
 
-If you don't already have a `grumphp.yml` file in your project, GrumPHP would ask you to create one. Answer "No" to the prompt.
-
-Then, copy all the `*.dist` from the library to your project root. The files copied are:
+This will add the plugin to your project and copy the default configuration files. These files are:
 
 * grumphp.yml.dist
 * phpcs.xml.dist
 * phpmd.xml.dist
 * phpstan.neon.dist
 
-```bash
-cp vendor/axelerant/drupal-quality-checker/*.dist .
-```
+Since these are `.dist` files, the plugin will overwrite them on every `composer install`. If you mean to customize the default settings, then we recommend that you rename them to remove the `.dist` suffix. As such, it is a good idea to add these `.dist` files to your `.gitignore` file.
 
 ## Usage
 
