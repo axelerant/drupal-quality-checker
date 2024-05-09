@@ -79,19 +79,22 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         $pluginDirectory = realpath(__DIR__ . '/../../');
 
         // Check if config already present.
-        $configPresent = file_exists($destination . '/grumphp.yml.dist');
+        $configPresents = [];
 
         // Copy each file to the project root.
         $configFiles = ['grumphp.yml.dist', 'phpcs.xml.dist', 'phpmd.xml.dist', 'phpstan.neon.dist'];
         foreach ($configFiles as $filename) {
             $sourcePath = $pluginDirectory . '/' . $filename;
             $destinationPath = $destination . '/' . $filename;
+            if (file_exists($destinationPath)) {
+                $configPresents[] = $filename;
+            }
             copy($sourcePath, $destinationPath);
         }
 
         // Output message indicating the files are copied with warning if exists.
-        if ($configPresent) {
-            $this->io->write('<fg=yellow>Configuration files are overwritten. Please watchout for any changes!</fg=yellow>');
+        if (!empty($configPresents)) {
+            $this->io->write('<fg=yellow>Configuration files (' . implode(', ', $configPresents) . ')  are overwritten. Please watchout for any changes!</fg=yellow>');
         }
         else {
             $this->io->write('<fg=green>Configuration files are copies successfully.</fg=green>');
@@ -100,6 +103,10 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
 
     /**
      * Locates the project root path.
+     *
+     * Since there is no API available in Composer to directly retrieve the project root path,
+     * we rely on the presence of `composer.json` in the directory to guess the project root.
+     * GrumPHP also utilizes a similar approach to identify the project root.
      *
      * @return string|bool The project root path or FALSE if not found.
      */
