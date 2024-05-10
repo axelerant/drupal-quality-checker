@@ -78,27 +78,18 @@ class AxelerantDQCPlugin implements PluginInterface, EventSubscriberInterface
         }
         $pluginDirectory = realpath(__DIR__ . '/../../');
 
-        // Check if config already present.
-        $configPresents = [];
-
         // Copy each file to the project root.
         $configFiles = ['grumphp.yml.dist', 'phpcs.xml.dist', 'phpmd.xml.dist', 'phpstan.neon.dist'];
         foreach ($configFiles as $filename) {
             $sourcePath = $pluginDirectory . '/' . $filename;
             $destinationPath = $destination . '/' . $filename;
             if (file_exists($destinationPath)) {
-                $configPresents[] = $filename;
+                $this->io->write('<fg=yellow>Configuration file ' . $filename . '  is overwritten. Please watchout for any change!</fg=yellow>');
             }
             copy($sourcePath, $destinationPath);
         }
 
-        // Output message indicating the files are copied with warning if exists.
-        if (!empty($configPresents)) {
-            $this->io->write('<fg=yellow>Configuration files (' . implode(', ', $configPresents) . ')  are overwritten. Please watchout for any changes!</fg=yellow>');
-        }
-        else {
-            $this->io->write('<fg=green>Configuration files are copies successfully.</fg=green>');
-        }
+        $this->io->write('<fg=green>Configuration files are copied successfully.</fg=green>');
     }
 
     /**
