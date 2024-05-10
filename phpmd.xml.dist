@@ -9,8 +9,27 @@
   </description>
 
   <!-- Import common rulesets -->
-  <rule ref="rulesets/design.xml"/>
-  <rule ref="rulesets/naming.xml"/>
+  <rule ref="rulesets/design.xml">
+    <exclude name="CouplingBetweenObjects"/>
+  </rule>
+
+  <rule ref="rulesets/naming.xml">
+    <exclude name="ShortVariable"/>
+    <exclude name="LongVariable"/>
+  </rule>
+
+  <rule ref="rulesets/naming.xml/ShortVariable">
+    <properties>
+        <property name="exceptions" value="id,op"/>
+    </properties>
+  </rule>
+
+  <rule ref="rulesets/naming.xml/LongVariable">
+    <properties>
+        <property name="maximum" value="30"/>
+    </properties>
+  </rule>
+
   <rule ref="rulesets/unusedcode.xml">
     <exclude name="UnusedFormalParameter"/>
   </rule>
