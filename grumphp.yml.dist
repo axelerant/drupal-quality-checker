@@ -37,10 +37,10 @@ grumphp:
         - .github
         - .gitlab
         - .ddev
-        - /config/
-        - /drush/
+        - /config
+        - /drush
         - /web/robots.txt
-        - /web/sites/default/
+        - /web/sites/default
         - bower_components
         - node_modules
         - /vendor
@@ -71,10 +71,10 @@ grumphp:
         - .github
         - .gitlab
         - .ddev
-        - /config/
-        - /drush/
+        - /config
+        - /drush
         - /web/robots.txt
-        - /web/sites/default/
+        - /web/sites/default
         - bower_components
         - node_modules
         - /vendor
