@@ -39,11 +39,7 @@ grumphp:
         - /\.ddev
         - /^config\/(.*)/
         - /drush
-        - /web/robots.txt
         - /^web\/sites\/default/
-        - bower_components
-        - node_modules
-        - /vendor
       triggered_by:
         - php
         - module
@@ -54,7 +50,6 @@ grumphp:
         - theme
         - css
         - info
-        - txt
     phpmd:
       whitelist_patterns:
         - /^web\/modules\/custom\/(.*)/
@@ -73,11 +68,7 @@ grumphp:
         - /\.ddev
         - /^config\/(.*)/
         - /drush
-        - /web/robots.txt
         - /^web\/sites\/default/
-        - bower_components
-        - node_modules
-        - /vendor
       triggered_by:
         - php
         - module
