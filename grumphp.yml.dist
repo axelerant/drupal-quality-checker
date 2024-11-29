@@ -8,7 +8,12 @@ grumphp:
   tasks:
     phplint:
       exclude:
+        - web/core
+        - web/modules/contrib
+        - web/themes/contrib
+        - web/profiles/contrib
         - web/sites/default
+        - vendor
       triggered_by:
         - php
         - module
