@@ -37,7 +37,7 @@ grumphp:
         - /\.github
         - /\.gitlab
         - /\.ddev
-        - /config
+        - /^config\/(.*)/
         - /drush
         - /web/robots.txt
         - /web/sites/default
@@ -71,7 +71,7 @@ grumphp:
         - /\.github
         - /\.gitlab
         - /\.ddev
-        - /config
+        - /^config\/(.*)/
         - /drush
         - /web/robots.txt
         - /web/sites/default
