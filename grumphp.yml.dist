@@ -64,9 +64,6 @@ grumphp:
         - /^config\/(.*)/
         - /drush
         - /^web\/sites\/default/
-        - bower_components
-        - node_modules
-        - /vendor
       triggered_by:
         - php
         - module
