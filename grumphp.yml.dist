@@ -34,9 +34,9 @@ grumphp:
       standard:
         - phpcs.xml.dist
       ignore_patterns:
-        - .github
-        - .gitlab
-        - .ddev
+        - /\.github
+        - /\.gitlab
+        - /\.ddev
         - /config
         - /drush
         - /web/robots.txt
@@ -68,9 +68,9 @@ grumphp:
     phpstan:
       configuration: phpstan.neon.dist
       ignore_patterns:
-        - .github
-        - .gitlab
-        - .ddev
+        - /\.github
+        - /\.gitlab
+        - /\.ddev
         - /config
         - /drush
         - /web/robots.txt
