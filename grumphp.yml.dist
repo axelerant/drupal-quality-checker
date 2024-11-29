@@ -34,7 +34,6 @@ grumphp:
         - /\.ddev
         - /^config\/(.*)/
         - /drush
-        - /web/robots.txt
         - /^web\/sites\/default/
         - bower_components
         - node_modules
@@ -49,7 +48,6 @@ grumphp:
         - theme
         - css
         - info
-        - txt
     phpmd:
       whitelist_patterns:
         - /^web\/modules\/custom\/(.*)/
