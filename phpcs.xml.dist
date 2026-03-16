@@ -59,7 +59,6 @@
   <rule ref="Drupal.Commenting.DocCommentAlignment"/>
   <rule ref="Drupal.Commenting.DocCommentLongArraySyntax"/>
   <rule ref="Drupal.Commenting.DocCommentStar"/>
-  <rule ref="Drupal.Commenting.FileComment"/>
   <rule ref="Drupal.Commenting.FunctionComment">
     <exclude name="Drupal.Commenting.FunctionComment.Missing"/>
     <exclude name="Drupal.Commenting.FunctionComment.MissingParamComment"/>
@@ -116,8 +115,6 @@
   <rule ref="Drupal.Semantics.LStringTranslatable"/>
   <rule ref="Drupal.Semantics.PregSecurity"/>
   <rule ref="Drupal.Semantics.RemoteAddress"/>
-  <rule ref="Drupal.Semantics.TInHookMenu"/>
-  <rule ref="Drupal.Semantics.TInHookSchema"/>
   <rule ref="Drupal.WhiteSpace.CloseBracketSpacing"/>
   <rule ref="Drupal.WhiteSpace.Comma"/>
   <rule ref="Drupal.WhiteSpace.EmptyLines"/>
