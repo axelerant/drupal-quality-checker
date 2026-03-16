@@ -18,11 +18,6 @@
   <arg name="extensions" value="inc,yml,install,module,php,profile,test,theme" />
   <arg name="colors" />
 
-  <!--Allow global variables in settings file.-->
-  <rule ref="DrupalPractice.CodeAnalysis.VariableAnalysis.UndefinedVariable">
-    <exclude-pattern>settings(\\.[a-zA-Z0-9]+)?\\.php</exclude-pattern>
-  </rule>
-
   <!--Allow section separators in settings.php file.-->
   <rule ref="DrupalPractice.Commenting.CommentEmptyLine.SpacingAfter">
     <exclude-pattern>settings(\\.[a-zA-Z0-9]+)?\\.php</exclude-pattern>
@@ -42,19 +37,11 @@
     <!-- Sniff for these errors: CommaLastItem -->
     <exclude name="Drupal.Arrays.Array.LongLineDeclaration"/>
   </rule>
-  <rule ref="Drupal.Classes.ClassCreateInstance"/>
   <rule ref="Drupal.Classes.ClassDeclaration"/>
-  <rule ref="Drupal.Classes.ClassFileName"/>
   <rule ref="Drupal.Classes.FullyQualifiedNamespace"/>
-  <rule ref="Drupal.Classes.InterfaceName"/>
   <rule ref="Drupal.Classes.PropertyDeclaration"/>
-  <rule ref="Drupal.Classes.UnusedUseStatement"/>
   <rule ref="Drupal.Classes.UseGlobalClass"/>
-  <rule ref="Drupal.Classes.UseLeadingBackslash"/>
-  <rule ref="Drupal.CSS.ClassDefinitionNameSpacing"/>
-  <rule ref="Drupal.CSS.ColourDefinition"/>
   <rule ref="Drupal.Commenting.ClassComment"/>
-  <rule ref="Drupal.Commenting.DataTypeNamespace"/>
   <rule ref="Drupal.Commenting.Deprecated"/>
   <rule ref="Drupal.Commenting.DocComment">
     <!-- Sniff for these errors: SpacingAfterTagGroup, WrongEnd, SpacingBetween,
@@ -95,9 +82,7 @@
     <exclude name="Drupal.Commenting.VariableComment.VarOrder"/>
     <exclude name="Drupal.Commenting.VariableComment.WrongStyle"/>
   </rule>
-  <rule ref="Drupal.ControlStructures.ElseIf"/>
   <rule ref="Drupal.ControlStructures.ControlSignature"/>
-  <rule ref="Drupal.ControlStructures.InlineControlStructure"/>
   <rule ref="Drupal.Files.EndFileNewline"/>
   <rule ref="Drupal.Files.FileEncoding"/>
   <rule ref="Drupal.Files.TxtFileLineLength"/>
@@ -106,17 +91,11 @@
   <rule ref="Drupal.Formatting.SpaceInlineIf"/>
   <rule ref="Drupal.Formatting.SpaceUnaryOperator"/>
   <rule ref="Drupal.Functions.DiscouragedFunctions"/>
-  <rule ref="Drupal.Functions.FunctionDeclaration"/>
   <rule ref="Drupal.Functions.MultiLineFunctionDeclaration"/>
   <rule ref="Drupal.InfoFiles.AutoAddedKeys"/>
   <rule ref="Drupal.InfoFiles.ClassFiles"/>
   <rule ref="Drupal.InfoFiles.DuplicateEntry"/>
   <rule ref="Drupal.InfoFiles.Required"/>
-  <rule ref="Drupal.Methods.MethodDeclaration">
-    <!-- Silence method name underscore warning which is covered already in
-      Drupal.NamingConventions.ValidFunctionName.ScopeNotCamelCaps. -->
-    <exclude name="Drupal.Methods.MethodDeclaration.Underscore"/>
-  </rule>
   <rule ref="Drupal.NamingConventions.ValidClassName"/>
   <rule ref="Drupal.NamingConventions.ValidGlobal"/>
   <rule ref="Drupal.NamingConventions.ValidVariableName">
@@ -142,7 +121,6 @@
   <rule ref="Drupal.WhiteSpace.CloseBracketSpacing"/>
   <rule ref="Drupal.WhiteSpace.Comma"/>
   <rule ref="Drupal.WhiteSpace.EmptyLines"/>
-  <rule ref="Drupal.WhiteSpace.Namespace"/>
   <rule ref="Drupal.WhiteSpace.ObjectOperatorIndent"/>
   <rule ref="Drupal.WhiteSpace.ObjectOperatorSpacing"/>
   <rule ref="Drupal.WhiteSpace.OpenBracketSpacing"/>
@@ -151,15 +129,6 @@
   <rule ref="Drupal.WhiteSpace.ScopeIndent"/>
 
   <!-- Drupal Practice sniffs -->
-  <rule ref="DrupalPractice.CodeAnalysis.VariableAnalysis">
-    <exclude-pattern>*.api.php</exclude-pattern>
-    <properties>
-      <property name="allowUnusedFunctionParameters" value="true"/>
-    </properties>
-  </rule>
-  <rule ref="DrupalPractice.CodeAnalysis.VariableAnalysis.UndefinedUnsetVariable">
-    <severity>0</severity>
-  </rule>
   <rule ref="DrupalPractice.Commenting.ExpectedException"/>
   <rule ref="DrupalPractice.General.ExceptionT"/>
   <rule ref="DrupalPractice.InfoFiles.NamespacedDependency"/>
