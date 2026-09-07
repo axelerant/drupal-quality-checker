@@ -1,0 +1,49 @@
+# .github/workflows/docs.yml — the whole enforcement setup for a repository.
+#
+# Copy this file in as it stands. Every reference below is one commit of the
+# standard, so nothing is vendored into the adopting repository.
+#
+# The pin is a full commit SHA, not a tag, because only a SHA is immutable: a
+# tag can be repointed at unreviewed code, and this call hands the workflow an
+# organisation token. A release tag points at the same commit for one reason —
+# a commit on no branch is eventually unreachable, and the tag keeps it alive.
+#
+# The standard is a private repository, so the checks need a token that can read
+# it. A reusable workflow runs with this repository's own GITHUB_TOKEN, which is
+# scoped to this repository alone. Set AXELERANT_STANDARD_TOKEN as an
+# organisation secret and every repository inherits it.
+#
+# To adopt a different reviewed commit, or to generate this file from
+# automation, run instead:
+#
+#   python3 docs-standard/scripts/render_workflow.py FULL_COMMIT_SHA --output .github/workflows/docs.yml
+#
+# Use enforcement: warn while a repository is completing its required set, and
+# block in the pull request that finishes adoption.
+name: docs
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  docs:
+    uses: axelerant/claude-plugins/.github/workflows/docs-check.yml@efc1a7353b42ac1b2978ae896e4e31003c0ba0d6
+    with:
+      ref: efc1a7353b42ac1b2978ae896e4e31003c0ba0d6
+      path: .
+      enforcement: warn
+    secrets:
+      # Read access to the standard. Set it once as an organisation secret.
+      standard_token: ${{ secrets.AXELERANT_STANDARD_TOKEN }}
+  coupling:
+    if: github.event_name == 'pull_request'
+    # A called workflow cannot hold more permission than its caller grants,
+    # and without this the whole file is rejected before any job starts.
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: axelerant/claude-plugins/.github/workflows/docs-coupling.yml@efc1a7353b42ac1b2978ae896e4e31003c0ba0d6
+    with:
+      ref: efc1a7353b42ac1b2978ae896e4e31003c0ba0d6
