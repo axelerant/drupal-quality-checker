@@ -37,13 +37,3 @@ jobs:
     secrets:
       # Read access to the standard. Set it once as an organisation secret.
       standard_token: ${{ secrets.AXELERANT_STANDARD_TOKEN }}
-  coupling:
-    if: github.event_name == 'pull_request'
-    # A called workflow cannot hold more permission than its caller grants,
-    # and without this the whole file is rejected before any job starts.
-    permissions:
-      contents: read
-      pull-requests: write
-    uses: axelerant/claude-plugins/.github/workflows/docs-coupling.yml@efc1a7353b42ac1b2978ae896e4e31003c0ba0d6
-    with:
-      ref: efc1a7353b42ac1b2978ae896e4e31003c0ba0d6
