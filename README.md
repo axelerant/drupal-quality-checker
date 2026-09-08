@@ -1,27 +1,79 @@
 # Package for Drupal Code Quality presets
 
-This has been customised from [vijaycs85/drupal-quality-checker](https://packagist.org/packages/vijaycs85/drupal-quality-checker) for Axelerant needs. Apart from a different template file, it uses the Axelerant logo.
+Composer plugin bringing Axelerant's GrumPHP, phpcs, phpmd and phpstan presets to a Drupal project.
 
-## Installation
+## Status
 
-_Upgrading from Beta 8?_ Read [the instructions for changes](#upgrading-from-beta-8) you need to make to grumphp.yml.dist.
+active
+
+Customised from [vijaycs85/drupal-quality-checker](https://packagist.org/packages/vijaycs85/drupal-quality-checker)
+for Axelerant, with a different template file and the Axelerant logo.
+
+## Requirements
+
+| Tool | Version |
+| --- | --- |
+| PHP | as required by the installed `grumphp-shim` |
+| Composer | 2 |
+
+`composer.json` is authoritative; this table summarises it.
+
+## Quick start
 
 ```bash
 composer require --dev axelerant/drupal-quality-checker
 ```
 
-This will add the plugin to your project and copy the default configuration files. These files are:
+That adds the plugin and copies the default configuration into the project:
+`grumphp.yml.dist`, `phpcs.xml.dist`, `phpmd.xml.dist` and `phpstan.neon.dist`.
 
-* grumphp.yml.dist
-* phpcs.xml.dist
-* phpmd.xml.dist
-* phpstan.neon.dist
+Because they are `.dist` files the plugin overwrites them on every
+`composer install`. To customise a preset, rename the file without the suffix
+and add the `.dist` copies to `.gitignore`.
 
-Since these are `.dist` files, the plugin will overwrite them on every `composer install`. If you mean to customize the default settings, then we recommend that you rename them to remove the `.dist` suffix. As such, it is a good idea to add these `.dist` files to your `.gitignore` file.
+No further setup is needed. If the git hooks do not fire:
 
-## Usage
+```bash
+php ./vendor/bin/grumphp git:init
+```
 
-No additional steps required, but if git hooks aren't fired, run `php ./vendor/bin/grumphp git:init`. For additional commands, look at [grumhp's documentation](https://github.com/phpro/grumphp/blob/master/doc/commands.md).
+## Common commands
+
+| Command | What it does |
+| --- | --- |
+| `composer require --dev axelerant/drupal-quality-checker` | Install into a project |
+| `php ./vendor/bin/grumphp git:init` | Reinstall the git hooks when they do not fire |
+| `php ./vendor/bin/grumphp run` | Run every configured task now |
+| `composer validate --strict` | Check this plugin's own manifest |
+| `cp vendor/axelerant/drupal-quality-checker/phpmd.xml.dist phpmd.xml` | Take over the phpmd ruleset |
+| `cp vendor/axelerant/drupal-quality-checker/phpcs.xml.dist phpcs.xml` | Take over the phpcs ruleset |
+
+For the rest, see [GrumPHP's command documentation](https://github.com/phpro/grumphp/blob/master/doc/commands.md).
+
+## How we work here
+
+Branch, open a pull request, and have it reviewed. A change to a shipped preset
+changes every project that installs this plugin, so it is released rather than
+merged quietly. Note it in `CHANGELOG.md`.
+
+## Ownership
+
+Owned by @hussainweb.
+
+No team owns this repository, so questions go to the owner. Open an issue at
+https://github.com/axelerant/drupal-quality-checker/issues for anything else.
+That is the support route for this package, including for people outside
+Axelerant who install it.
+
+## Documentation
+
+- [Documentation map](docs/README.md) — where do I start?
+- [Architecture](docs/architecture.md) — how does the plugin reach a project?
+
+## Distribution
+
+Published on Packagist as `axelerant/drupal-quality-checker` and installed as a
+Composer dev dependency.
 
 ## Customising
 
